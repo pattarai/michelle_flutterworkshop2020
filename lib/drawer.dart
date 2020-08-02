@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_assignment_app/snacktoast.dart';
-import 'package:flutter_assignment_app/stacks.dart';
-import 'package:flutter_assignment_app/webview_demo.dart';
+import 'package:flutter_assignment_app/login.dart';
+import 'package:flutter_assignment_app/scientific.dart';
 import 'main.dart';
 import 'package:flutter_assignment_app/main.dart';
-
 
 
 
@@ -21,10 +19,10 @@ class HomeScreen extends StatefulWidget {
   int x = 10;
 
   var drawerItems = [
-    new DrawerItem("Login", Icons.vpn_key),
-    new DrawerItem("Stack", Icons.layers),
-    new DrawerItem("Messages", Icons.question_answer),
-    new DrawerItem("WebviewDemo", Icons.accessibility)
+    new DrawerItem("Home" , Icons.home),
+    new DrawerItem("Simple Calculator", Icons.smartphone),
+    new DrawerItem("Scientific Calculator", Icons.satellite),
+
   ];
 
   @override
@@ -42,17 +40,17 @@ class HomeScreenState extends State<HomeScreen> {
   _getDrawerItemWidget(int pos) {
     switch (pos) {
       case 0:
-        return MyApp();
+        return Login();
         break;
       case 1:
-        return StackDemo();
+        return MyApp();
         break;
       case 2:
-        return SnackBarDemo();
+        return MyCalc();
         break;
-      default:
-        return WebViewDemo();
-        break;
+
+
+
     }
   }
 
@@ -78,8 +76,8 @@ class HomeScreenState extends State<HomeScreen> {
     return new Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
-        backgroundColor: Color(0xff293844),
-        title: Text("Aestheticslay"),
+        backgroundColor: Color(0xff0a171a),
+        title: Text("Calculator", style: TextStyle(fontFamily: "JosefinSans"),),
       ),
 
       drawer: new Drawer(
@@ -87,16 +85,11 @@ class HomeScreenState extends State<HomeScreen> {
           child: new Column(
             children: <Widget>[
               new UserAccountsDrawerHeader(
-                accountName: new Text("Michelle"),
-                accountEmail: new Text("vsnehamichelle@gmail.com"),
-                currentAccountPicture: CircleAvatar(
-                  radius: 60.0,
-                  backgroundColor: const Color(0xFF778899),
-                  backgroundImage: NetworkImage(
-                      "https://th.bing.com/th/id/OIP.5OV0BTPQ60EJolzRRShP7wHaLe?w=200&h=311&c=7&o=5&dpr=1.25&pid=1.7"), // for Network image
-                ),
+                accountName: new Text("Calculator", style: TextStyle(fontFamily: "JosefinSans", fontSize: 20),),
+
+
                 decoration: new BoxDecoration(
-                  color: Color(0xFF222437),
+                  color: Color(0xFFa0bbbf),
                 ),
               ),
               new Column(children: drawerOptions)
